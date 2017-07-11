@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/materialize.min.css">
+		<link rel="stylesheet" href="css/main.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<nav>
+			<div class="brand-logo left" style="margin-left: 20px">Ping Checker</div>
+		</nav>
+		<div class="wrapper">
+			<div class="card" style="margin-right: 20px; width: 250px; align-self: flex-start">
+				<div class="card-content">
+					<span class="card-title">Options</span>
+					<div class="input-field">
+						<input id="pingAddr" type="text" value="8.8.8.8"/>
+						<label for="pingAddr">Address</label>
+					</div>
+					<div class="input-field">
+						<input id="pingInt" type="number" class="validate" min="1" max="300" step="0.1" value="2.5"/>
+						<label for="pingInt" data-error="Must be between 1 and 300 seconds">Interval</label>
+					</div>
+				</div>
+				<div class="card-action">
+					<button class="btn waves-effect waves-light stretchy" id="pingButton">
+						Ping!
+  					</button>
+				</div>
+			</div>
+			<div class="card" id="graph">
+				<div class="card-content stretchy" style="height: 100%">
+					<div class="card-content stretchy" style="display: flex; flex-direction: column; height: 100%;">
+						<span class="card-title" id="addrTitle">
+							No Address Set
+						</span>
+						<div id="histogram"class="stretchy" style="flex: 1"></div>
+						<div id="scatter" style="flex: 1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End Styles-->
+		<script>
+		//can't use script tag because electron is too edgy
+			window.$ = window.jQuery = require('jquery');
+			window.Hammer = require('hammerjs'); 
+		</script>
+     	<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/plotly.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
